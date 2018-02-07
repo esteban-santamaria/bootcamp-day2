@@ -6,20 +6,18 @@ import { Component } from '@angular/core';
 	styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
-	title = 'app';
-	imageUrl: string;
-	baseUrl = 'https://api.adorable.io/avatars/500/';
-	urlSuffix = '@adorable.io.png';
+	imageUrl: string = 'https://api.adorable.io/avatars/500/300@adorable.io.png';
+	baseUrl: string = 'https://api.adorable.io/avatars/500/';
+	urlSuffix: string = '@adorable.io.png';
 
 	constructor() {
 		setInterval(() => this.generateRandomFace(), 1000);
 	}
-
 	generateRandomFace() {
-		this.imageUrl = `${this.baseUrl}${this.generateRandomWord()}${this.urlSuffix}`;
+		this.imageUrl = `${this.baseUrl}${this.generateRandomNumber()}${this.urlSuffix}`;
 	}
 
-	generateRandomWord(): string {
+	generateRandomNumber(): string {
 		return `${Math.floor(Math.random() * (10000000000000 + 1))}`;
 	}
 }
